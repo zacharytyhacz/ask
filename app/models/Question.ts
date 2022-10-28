@@ -9,6 +9,7 @@ const questionSchema: mongoose.Schema = new Schema({
     askedBy: { type: mongoose.Types.ObjectId, ref: 'Profile', required: true },
 
     questionText: { type: String, required: true },
+    questionTitle: { type: String, required: true },
 
     answerText: { type: String, required: false }
 }, { timestamps: true })

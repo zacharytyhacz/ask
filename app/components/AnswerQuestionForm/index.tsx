@@ -12,7 +12,7 @@ export const AnswerQuestionForm: React.FC<Props> = ({ question }) => {
         <form method="POST" action={`/api/questions/${question._id}/answer`}>
           <label htmlFor="answerText">Got an answer?</label>
           <br />
-          <textarea name="answerText" placeholder="Type your answer here..." />
+          <textarea name="answerText" placeholder="Type your answer here..." rows={8} />
           <br />
           <button type="submit">
             Submit Answer

@@ -27,11 +27,13 @@ export const Header: React.FC = () => {
     }
     return (
       <header>
-        <Link href="/" passHref>
-          <a>
-            Home
-          </a>
-        </Link>
+        <div className="logo">
+          <Link href="/" passHref>
+            <a>
+              <Image src="/images/logo.png" alt="ask.io" height={32} width={100} layout="fixed" />
+            </a>
+          </Link>
+        </div>
         <Link href="/continue" passHref>
           <a>
             Sign In

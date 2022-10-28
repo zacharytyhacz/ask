@@ -9,6 +9,7 @@ declare module "ask.io" {
     _id: string
     questionFor: ProfileType
     questionText: string
+    questionTitle: string
     askedBy: ProfileType
     answerText?: string
     createdAt: Date

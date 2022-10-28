@@ -25,22 +25,23 @@ export const LatestAskedQuestions: React.FC<Props> = ({ questions }) => {
         questions.map((question) => (
           <>
             <div className="asked-question" key={question._id}>
+              <h2>{ question.questionTitle }</h2>
               <br />
               { question.questionText }
               <br />
               <br />
               <div className="asked-by">
                 <a href={`/ask/${question.askedBy._id}`}>
-                    { question.askedBy.name }
+                    { question.askedBy.name || 'Terry Davis'}
                 </a> asked <a href={`/ask/${question.questionFor._id}`}>
-                    { question.questionFor.name }
+                    { question.questionFor.name || 'Terry Davis'}
                 </a>
               </div>
               { !question.answerText && iCanAnswerThisQuestion(question) && (
                 <AnswerQuestionForm question={question} />
               )}
               { !question.answerText && !iCanAnswerThisQuestion(question) && (
-                <h5>No answer yet.</h5>
+                <h6><i>No answer yet.</i></h6>
               )}
               { question.answerText && <h4 className="answer-text">{ question.answerText }</h4> }
               <sub>

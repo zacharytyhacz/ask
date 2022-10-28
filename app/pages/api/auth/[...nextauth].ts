@@ -32,13 +32,12 @@ export const authOptions: NextAuthOptions = {
         session: async ({ session, user }) => {
           session.user = user
 
-          console.log('IN CALLBACK', user)
-
-          const profileExists = await Profile.exists({ _id: user.Id })
+          const profileExists = await Profile.findOne({ _id: user.id })
 
           if (!profileExists) {
             await Profile.create({
-              _id: user.id
+              _id: user.id,
+              name: user.email?.split('@')[0] ?? `Terry Davis ${parseInt((Math.random() * 1000000).toString())}`
             })
           }
 

@@ -368,6 +368,30 @@ header > a:first-child {
   flex-grow: 1;
 }
 
+button {
+  background: #FFF;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+
+  transition: box-shadow 0.3s ease;
+}
+button:hover,
+button:focus,
+button:active {
+  box-shadow: 1px 1px 39px -5px rgba(0,0,0,0.6);
+  -webkit-box-shadow: 1px 1px 39px -5px rgba(0,0,0,0.6);
+  -moz-box-shadow: 1px 1px 39px -5px rgba(0,0,0,0.6);
+}
+
+textarea {
+  padding: 8px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  background: #FFF;
+}
+
 .home h1,
 .home h2 {
   text-align: center;
@@ -377,4 +401,22 @@ header > a:first-child {
 .questions-container {
   width: 50%;
   margin: auto;
+}
+
+.ask-question-form-container {
+  width: 50%;
+  margin: auto;
+  padding-bottom: 75px;
+}
+.ask-question-form-container textarea {
+  width: 100%;
+}
+.ask-question-form-container button[type=submit] {
+  float: right;
+}
+.answer-question-form-container textarea {
+  width: 100%;
+}
+.profile .details {
+  text-align: center;
 }
