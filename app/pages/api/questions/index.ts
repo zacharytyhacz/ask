@@ -49,11 +49,14 @@ export default async function handler(
       const numberOfProfiles = 500
 
       for(let i = 0; i < numberOfProfiles; i++) {
-        await Profile.create({
-          name: faker.internet.userName(),
-          bio: faker.company.catchPhrase(),
-          createdAt: faker.date.recent(365)
-        })
+        try {
+          await Profile.create({
+            name: faker.internet.userName(),
+            bio: faker.company.catchPhrase(),
+            createdAt: faker.date.recent(365)
+          })
+        } catch (err) {
+        }
       }
 
       const allProfiles = await Profile.find({})
@@ -66,9 +69,10 @@ export default async function handler(
         await Question.create({
           questionFor: questionFor._id,
           questionText: faker.lorem.sentences(
-            faker.datatype.number({ min: 1, max: 4 })
+            faker.datatype.number({ min: 6, max: 14 })
           ),
           askedBy: askedBy._id,
+          questionTitle: faker.lorem.sentence() + '?',
           answerText: faker.datatype.boolean() ? faker.company.catchPhrase() : undefined,
           createdAt: faker.date.recent(365)
         })
@@ -77,6 +81,7 @@ export default async function handler(
       await Question.create({
         questionFor: body.questionFor,
         questionText: body.questionText,
+        questionTitle: body.questionTitle,
         askedBy: session?.user?.id
       })
 

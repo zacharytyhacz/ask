@@ -25,10 +25,9 @@ export const LatestAskedQuestions: React.FC<Props> = ({ questions }) => {
         questions.map((question) => (
           <>
             <div className="asked-question" key={question._id}>
-              <h2>{ question.questionTitle }</h2>
-              <br />
-              { question.questionText }
-              <br />
+              <a href={`/questions/${question._id}`}>
+                <h2>{ question.questionTitle }</h2>
+              </a>
               <br />
               <div className="asked-by">
                 <a href={`/ask/${question.askedBy._id}`}>

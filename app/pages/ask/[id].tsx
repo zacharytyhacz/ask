@@ -8,6 +8,7 @@ import Question from '../../models/Question'
 import { AskQuestionForm } from '../../components/AskQuestionForm'
 import { LatestAskedQuestions } from '../../components/LatestAskedQuestions'
 import { connectToDatabase } from '../../lib/connectToDatabase'
+import { Page } from '../../components/Page'
 
 type Props = {
   profile: ProfileType
@@ -28,15 +29,15 @@ const AskProfile: NextPage<Props> = ({ profile, latestQuestions, numberOfAnswere
     }, [session, profile])
 
     return (
-      <div className="profile">
-        <div className="details">
+      <Page>
+        <div className="profile-details">
           <h1>{ profile.name || 'Terry Davis'}</h1>
           <p>{ profile.bio }</p>
           <sub>{numberOfAnsweredQuestions} out of {totalNumberOfQuestions} question{totalNumberOfQuestions === 1 ? '' : 's'} answered.</sub>
         </div>
         { showQuestionForm && <AskQuestionForm questionFor={profile._id} /> }
         <LatestAskedQuestions questions={latestQuestions} />
-      </div>
+      </Page>
     )
 }
 

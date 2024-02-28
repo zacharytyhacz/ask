@@ -22,6 +22,11 @@ export const Header: React.FC = () => {
               Your Wall
             </a>
           </Link>
+          <Link href="/settings/profile" passHref>
+            <a>
+              Settings
+            </a>
+          </Link>
         </header>
       )
     }

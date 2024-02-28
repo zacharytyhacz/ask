@@ -1,6 +1,7 @@
 import type { NextPage, NextPageContext } from 'next'
 import { getCsrfToken } from "next-auth/react"
 import Head from 'next/head'
+import { Page } from '../components/Page'
 
 type Props = {
     csrfToken: string
@@ -13,8 +14,7 @@ const Continue: NextPage<Props> = ({ csrfToken, callbackUrl }) => {
             <Head>
                 <title>Sign In</title>
             </Head>
-            <div className="continue-container">
-                <div className="image-half" />
+            <Page>
                 <form method="post" action={`/api/auth/signin/email?callbackUrl=${encodeURI(callbackUrl)}`}>
                     <h2>Let&apos;s Get Started</h2>
                     <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
@@ -22,9 +22,12 @@ const Continue: NextPage<Props> = ({ csrfToken, callbackUrl }) => {
                         Email address
                         <input type="email" id="email" name="email" />
                     </label>
+
+                    <br />
+                    <br />
                     <button type="submit">Continue with email</button>
                 </form>
-            </div>
+            </Page>
         </>
     )
 }

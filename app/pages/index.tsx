@@ -4,6 +4,7 @@ import Head from 'next/head'
 import InfiniteScroller from 'react-infinite-scroller'
 import { QuestionType } from 'ask.io'
 import { LatestAskedQuestions } from '../components/LatestAskedQuestions'
+import { Page } from '../components/Page'
 // import Question from '../models/Question'
 
 type Props = {
@@ -44,23 +45,25 @@ const Home: NextPage<Props> = ({ latestQuestions }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
         <meta name="description" content="Ask developers questions"/>
       </Head>
-      <div className="home">
-        <h1>Ask</h1>
-        <h2>or</h2>
-        <h1>Answer</h1>
-        <InfiniteScroller
-          pageStart={1}
-          initialLoad={false}
-          loadMore={() => setSkip((prev) => {
-            console.log('PAGE: ', prev)
-            return prev + 1
-          })}
-          hasMore={hasMore}
-          loader={<div className="loading-more-questions">Find more questions...</div>}
-        >
-          <LatestAskedQuestions questions={visibleQuestions} />
-        </InfiniteScroller>
-      </div>
+      <Page>
+        <div className="home">
+          <h1>Ask</h1>
+          <h2>or</h2>
+          <h1>Answer</h1>
+          <InfiniteScroller
+            pageStart={1}
+            initialLoad={false}
+            loadMore={() => setSkip((prev) => {
+              console.log('PAGE: ', prev)
+              return prev + 1
+            })}
+            hasMore={hasMore}
+            loader={<div className="loading-more-questions">Find more questions...</div>}
+          >
+            <LatestAskedQuestions questions={visibleQuestions} />
+          </InfiniteScroller>
+        </div>
+      </Page>
     </>
   )
 }

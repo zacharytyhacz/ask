@@ -385,11 +385,13 @@ button:active {
   -moz-box-shadow: 1px 1px 39px -5px rgba(0,0,0,0.6);
 }
 
-textarea {
+textarea,
+input {
   padding: 8px;
   border: 1px solid #000;
   border-radius: 8px;
   background: #FFF;
+  width: 100%;
 }
 
 .home h1,
@@ -399,8 +401,14 @@ textarea {
 }
 
 .questions-container {
-  width: 50%;
+  width: 100%;
   margin: auto;
+}
+.asked-question > a,
+.asked-question > a > h2 {
+  line-height: 25px;
+  text-align: left;
+  color: #000;
 }
 
 .ask-question-form-container {
@@ -408,15 +416,19 @@ textarea {
   margin: auto;
   padding-bottom: 75px;
 }
-.ask-question-form-container textarea {
-  width: 100%;
-}
 .ask-question-form-container button[type=submit] {
   float: right;
 }
-.answer-question-form-container textarea {
-  width: 100%;
-}
-.profile .details {
+.profile-details {
   text-align: center;
+}
+
+.page {
+  width: 50%;
+  margin: auto;
+}
+
+.answer-text {
+  border: solid 1px black;
+  padding: 24px;
 }
